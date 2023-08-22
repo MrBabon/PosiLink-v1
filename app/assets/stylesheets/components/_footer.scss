@@ -21,9 +21,11 @@ main {
 
 
 footer {
-    background-color: #E3CAA5;
+    background-color: #21ff9d;
     color: #000000;
-    padding: 30px 100px;
+		display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 footer h3 {
@@ -59,7 +61,7 @@ footer h3 {
 
 .footer-middle {
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     text-align: center;
 }
 
@@ -130,7 +132,6 @@ a.social:not(:last-child) {
 
 @media screen and (max-width: 560px) {
     footer {
-        padding: 30px;
     }
     .footer-middle {
         display: none;
@@ -139,10 +140,9 @@ a.social:not(:last-child) {
     .bouton-phone {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        gap: 100px;
         font-size: 40px;
-        margin: 0 0 0 4px;
-        color: #AD8B73;
+        color: #219dff;
+				justify-items: center;
     }
     a.social {
         display: none;
