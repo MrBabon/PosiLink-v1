@@ -1,22 +1,43 @@
 <% content_for :meta_title, "Réinitialisation du mot de passe • Posilink" %>
 <% content_for :meta_description, "Réinitialisez votre mot de passe sur cette page" %>
-
-<h2>Mot de passe oublié ?</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-  <div class="center-form">
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
+<section class="h-100 gradient-form">
+  <div class="container py-4 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-10 h-100">
+        <div class="card rounded-3 text-black gradient-custom-2 h-100">
+          <div class="row g-0">
+            <div class="d-flex align-items-center col-lg-6">
+              <div class="card-body p-md-5 mx-md-4 text-white">
+								<h2>Mot de passe oublié?</h2>
+								<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+									<%= f.error_notification %>
+									<div class="form-inputs">
+										<%= f.input :email,
+																required: true,
+																autofocus: true,
+																input_html: { autocomplete: "email" },
+																label_html: { class: 'label-left' }%>
+									</div>
+									<div class="form-actions button-registration-réinilisation">
+										<%= f.button :submit, "Réinitialiser", class: "btn btn-primary" %>
+									</div>
+								<% end %>
+								<div class="text-center">
+                  <%= render "devise/shared/links" %>
+                </div>
+							</div>
+            </div>
+            <div class="col-lg-6 align-items-center">
+              <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                <h4 class="mb-4 text-center">Les associations contribuent à notre bien-être à tous !</h4>
+                <p class="small mb-0 text-center">Aidez-nous à améliorer vôtre communauté.</p>
+              </div>
+              <div class="text-center">
+                <%= image_tag"cover.png", style:"width: -webkit-fill-available;"%>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
   </div>
-
-  <div class="form-actions button-registration-réinilisation">
-    <%= f.button :submit, "Réinitialiser", class: "btn btn-primary" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-</div>
+</section>
