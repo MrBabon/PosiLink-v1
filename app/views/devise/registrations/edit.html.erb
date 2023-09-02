@@ -9,7 +9,10 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>En attente de confirmation pour : <%= resource.unconfirmed_email %></p>
     <% end %>
-
+    <%= f.file_field :avatar,
+                hint: "Avec une photo de vous, c'est mieux !",
+                required: false,
+                input_html: { autocomplete: "Photo de profil" } %>
     <%= f.input :password,
                 hint: "Laissez-le vide si vous ne souhaitez pas le modifier.",
                 required: false,

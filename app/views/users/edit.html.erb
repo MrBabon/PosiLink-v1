@@ -1,0 +1,11 @@
+<%= form_for(@user, url: user_path(@user), method: :patch, html: { multipart: true }) do |f| %>
+  <%= f.label :nickname %>
+  <%= f.text_field :nickname %>
+
+  <%= f.label :avatar %>
+  <%= f.file_field :avatar %>
+
+  <%= f.submit "Mettre à jour le profil" %>
+<% end %>
+
+<%= link_to "Retour", :back %>
