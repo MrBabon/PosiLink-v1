@@ -1,0 +1,36 @@
+
+<section class="d-flex py-5 px-5">
+  <div class="profil-page d-flex ps-5">
+    <% if current_user.avatar.attached? %>
+        <%= image_tag url_for(current_user.avatar), alt: "Avatar de #{current_user.email}", class: "profil-avatar" %>
+    <% else %>
+    <%= image_tag "cover.png", width: 100, height: 100, alt: "Avatar par défaut", class: "profil-avatar" %>
+    <% end %>
+  </div>
+  <div class="d-flex px-3 pt-1">
+    <div class="px-2 pt-1">
+      <h2><%= current_user.nickname %></h2>
+    </div>
+    <div class="px-2 pt-2">
+      <%= button_to "Modifier profil", edit_user_path(current_user), method: :get %>
+    </div>
+  </div>
+</section>
+
+
+<div class="container">
+  <%= month_calendar do |date| %>
+    <%= date %>
+  <% end %>
+</div>
+
+<%# A FAIRE %>
+<%# <%= month_calendar(events: @participations) do |participations| %>
+
+  <%# <% participations.each do |participation| %> 
+    <%# <div class="meeting"> %>
+      <%# <p><%= participation.event.title </p> 
+      <%# <p>Date de l'événement : <%= l participation.event.date </p> 
+    <%# </div> %>
+  <%# <% end %> 
+<%# <% end %> 
