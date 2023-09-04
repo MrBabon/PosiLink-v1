@@ -17,20 +17,17 @@
   </div>
 </section>
 
-
-<div class="container">
-  <%= month_calendar do |date| %>
-    <%= date %>
+<h2>Mon calendrier</h2>
+<div class="container ">
+  <%= month_calendar(events: @participations) do |date, participations_of_date| %>
+  <%= date %>
+  <% participations_of_date.each do |participation| %>
+    <div class="meeting">
+      <p><%= participation.event.title %></p>
+      <p><%= participation.event.address %></p>
+    </div>
+  <% end %>
   <% end %>
 </div>
 
-<%# A FAIRE %>
-<%# <%= month_calendar(events: @participations) do |participations| %>
 
-  <%# <% participations.each do |participation| %> 
-    <%# <div class="meeting"> %>
-      <%# <p><%= participation.event.title </p> 
-      <%# <p>Date de l'événement : <%= l participation.event.date </p> 
-    <%# </div> %>
-  <%# <% end %> 
-<%# <% end %> 

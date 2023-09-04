@@ -24,7 +24,7 @@
                 <h2><%= event.organization.name %></h2>
                 <img src="<%= cl_image_path event.photo.key %>" alt="<%= event.title %>">
                 <h2><%= event.title %></h2>
-                <p><%= event.date.strftime("%d-%m-%Y") %></p>
+                <p><%= event.start_time.strftime("%d-%m-%Y") %></p>
                 <%= link_to event.title, organization_event_path(event.organization, event), class: "button" %>
               </div>
             <% end %>
