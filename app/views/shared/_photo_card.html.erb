@@ -1,3 +1,3 @@
 <img src="<%= cl_image_path event.photo.key %>" alt="Image de la carte">
-<p><%= event.date.strftime("%d-%m-%Y") %></p>
+<p><%= event.start_time.strftime("%d-%m-%Y") %></p>
 <%= link_to event.title, organization_event_path(event.organization, event), class: "button" %>

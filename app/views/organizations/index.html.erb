@@ -1,30 +1,32 @@
 <% content_for :meta_title, "Liste des associations • Posilink" %>
 <% content_for :meta_description, "Rejoigniez nos associations partenaires" %>
 
-<div class="row justify-content-center">
-  <div class="col-sm-8 my-5">
-    <%= form_with url: organizations_path, method: :get, class: "d-flex barre-recherche shadow-lg rounded-pill mb-4" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control recherche-input",
-        placeholder: "Nom de l'association"
-      %>
-      <%= submit_tag "Recherche", name: "", class: "nav-link py-1 px-2" %>
-    <% end %>
+<div class="justify-content-center">
+  <div class="container d-flex justify-content-center">
+    <div class="col-sm-8 my-5">
+      <%= form_with url: organizations_path, method: :get, class: "d-flex barre-recherche shadow-lg rounded-pill mb-4" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control recherche-input",
+          placeholder: "Association"
+        %>
+        <%= submit_tag "Recherche", name: "", class: "nav-link py-1 px-2" %>
+      <% end %>
+    </div>
   </div>
   <!-- SCROLL X START -->
-  <div class="container">
+  <!-- <div class="container">
     <div class="row">
       <div class="col">
         <div class="event-card-grid pt-5">
           <% all_events = @organizations.map(&:events).flatten %>
             <% all_events.each_with_index do |event, index| %>
               <% rotation_degrees = index.even? ? 10 : -10 %>
-              <div class="event-card" style="transform: rotate(<%= rotation_degrees %>deg);">
+              < class="event-card" style="transform: rotate(<%= rotation_degrees %>deg);">
                 <h2><%= event.organization.name %></h2>
                 <img src="<%= cl_image_path event.photo.key %>" alt="<%= event.title %>">
                 <h2><%= event.title %></h2>
-                <p><%= event.date.strftime("%d-%m-%Y") %></p>
+                <p><%= event.start_time.strftime("%d-%m-%Y") %></p>
                 <%= link_to event.title, organization_event_path(event.organization, event), class: "button" %>
               </div>
             <% end %>
@@ -32,27 +34,25 @@
       </div>
       
     </div>
-  </div>
+  </div> -->
   <!-- SCROLL X END -->
   <div class='bp-index-container mt-2'>
-    <h1 class="titre-bold">TOUS NOS <span class="phrase-couleur">PARTENAIRES</span> <br>ASSOCIATIFS </h1>
-    <div class="bp-index-container-ac">
-      <% @organizations.each do |organization| %>
-        <div class="affichage-ac mb-5">
-          <div class="bp-container-grid-ac">
-            <% if organization.photo.key.present? %>
-              <img src="<%= cl_image_path organization.photo.key %>" alt="association">
-            <% else %>
-              <p>Aucune image disponible</p>
-            <% end %>
-            <div class="container__ac">
-              <h1><%= organization.name %></h1>
-              <p><%= organization.category %></p>
-              <button class="bouton-ac " onclick="window.location.href='<%= organization_path(organization) %>'">voir <%= organization.name %> <i class="fa fa-arrow-right"></i></button>
+    <h1 class="titre-bold pb-2">TOUS NOS <span class="phrase-couleur">PARTENAIRES</span> <br>ASSOCIATIFS </h1>
+    <div class="container">
+      <div class="row align-items-center">
+          <% @organizations.each do |organization| %>
+            <div class="col-xl-4 col-md-6 pb-4">
+              <div class="card card-ac border-3">
+                <img src="<%= cl_image_path organization.photo.key %>" alt="association" class="object-fit-cover img-fluid">
+                <div class="card-body">
+                  <h5 class="card-title"><%= organization.name %></h5>
+                  <p class="card-text"><%= organization.category %></p>
+                  <button class="btn btn-warning" onclick="window.location.href='<%= organization_path(organization) %>'">voir <%= organization.name %> <i class="fa fa-arrow-right"></i></button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      <% end %>
+          <% end %>
+      </div>
     </div>
   </div>
 </div>

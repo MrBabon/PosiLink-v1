@@ -3,7 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @participations = @user.participations.includes(:event)
+    @participations = Participation.where(user_id: @user.id).includes(:event)
+    @participations_by_date = @participations.group_by { |p| p.event.start_time.to_date }
   end
 
   def edit

@@ -42,7 +42,7 @@ collecte = Event.new(
   address: "606, Bd du mercantour, 06200 Nice",
   title: "Collecte de denrées alimentaires",
   description: "Dans le cadre de la collecte de denrées alimentaire, RDV avec l’association des Restos du coeur le mercredi 12 juillet de 14h00-18h00 à Carrefour Lingostiére pour animer la récolte de produits de 1ère nécessité (alimentaire, hygiène etc...).",
-  date: "2023-07-12",
+  start_time: "2023-07-12",
   organization: resto_du_coeur
 )
 collecte.photo.attach(io: file_collecte, filename: "collecte.png", content_type: "image/png")
@@ -53,7 +53,7 @@ distribution = Event.new(
   address: "21 Rue Dabray, 06000 Nice",
   title: "Distributions de denrées alimentaires",
   description: "Distribution de denrées alimentaires et hygiéniques pour des personnes dans le besoin, organisée par les Restos du Cœur dans ses locaux, le mercredi 12 juillet, de 17h à 19h",
-  date: "2023-07-12",
+  start_time: "2023-07-12",
   organization: resto_du_coeur
 )
 distribution.photo.attach(io: file_distribution, filename: "distribution.png", content_type: "image/png")
@@ -79,7 +79,7 @@ nettoyage = Event.new(
   address: "13 Prom. des Anglais, 06000 Nice",
   title: "Nettoyage de la plage",
   description: "Dans le cadre d'Initiatives Océanes, RDV avec l’association Surfrider Foundation Europe le dimanche 2 juillet de 10h30-12h30 pour une action de nettoyage de la plage de la Promenade des Anglais.",
-  date: "2023-07-02",
+  start_time: "2023-09-09",
   organization: wwf
 )
 nettoyage.photo.attach(io: file_nettoyage, filename: "nettoyage.png", content_type: "image/png")
@@ -102,7 +102,7 @@ plantation = Event.new(
   address: "2680 Rte de la Revere, 06360 Èze",
   title: "Plantation d'arbres au Parc de la Grande Corniche",
   description: "Dans le cadre de la reforestation du Parc Naturel Départemental de la Grande Corniche, une plantation d'arbres est organisée le dimanche 10 juillet de 9h à 12h",
-  date: "2023-07-10",
+  start_time: "2023-07-10",
   organization: wwf
 )
 plantation.photo.attach(io: file_plantation, filename: "plantation.png", content_type: "image/png")
@@ -113,7 +113,7 @@ jardin = Event.new(
   address: "11 Voie Romaine, 06000 Nice",
   title: "Plantation de légumes au Jardin Potager de la Voie Romaine",
   description: "En coordination avec l'association Pasteur Avenir Jeunesse (P@JE), une plantation de légumes et d'aromates est organisée le 11 juillet de 9h à 17h",
-  date: "2023-07-11",
+  start_time: "2023-07-11",
   organization: wwf
 )
 jardin.photo.attach(io: file_jardin, filename: "jardin.png", content_type: "image/png")
@@ -124,7 +124,7 @@ conference = Event.new(
   address: "25 avenue François Mitterrand, 06300 Nice",
   title: "Conférence sur les enjeux climatiques",
   description: "En partenariat avec l'Université Saint-Jean d'Angély et ses professeurs, une conférence autour des enjeux climatiques aura lieu le 13 juillet de 18h à 20h dans l'Amphithéâtre 1.",
-  date: "2023-07-13",
+  start_time: "2023-07-13",
   organization: wwf
 )
 conference.photo.attach(io: file_conference, filename: "conference.png", content_type: "image/png")
@@ -148,7 +148,7 @@ soutien = Event.new(
   address: "Av. de la Vaugine, 83300 Draguignan",
   title: "Soutien psychologique et isolement social",
   description: "Dépression, troubles affectifs, anxiété, burn-out ou idées noires sont autant de difficultés auxquelles nous sommes nombreux à faire face. Alors que 50 % des absences au travail sont liées à la santé mentale, 1 personne sur 5 souffre de troubles mentaux dans sa vie. Nous organisons un atelier de groupe afin de discuter de ces sujets, et ce sans tabou.",
-  date: "2023-09-05",
+  start_time: "2023-09-05",
   organization: croix_rouge
 )
 soutien.photo.attach(io: file_soutien, filename: "soutien.png", content_type: "image/png")
@@ -159,7 +159,7 @@ integration_sociale = Event.new(
   address: "50 Rue Ferrere, 33000 Bordeaux",
   title: "Intégration sociale des personnes en situation de précarité",
   description: "Nous le constatons chaque jour dans nos délégations, le travail ne protège plus de la précarité. Aujourd’hui, viennent s’ajouter aux personnes sans-abri trois nouvelles catégories de bénéficiaires ayant recours aux aides sociales : les jeunes, les personnes âgées et les travailleurs pauvres.",
-  date: "2023-11-25",
+  start_time: "2023-11-25",
   organization: croix_rouge
 )
 integration_sociale.photo.attach(io: file_integration_sociale, filename: "integration_sociale.png", content_type: "image/png")

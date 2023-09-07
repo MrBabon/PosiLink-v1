@@ -1,0 +1,59 @@
+.simple-calendar {
+    table {
+      min-height: 80vh;
+    }
+    .today {
+      background-color: #FAF3DD;
+    }
+  }
+  
+  .meeting {
+    color: white;
+    border: 1px;
+    border-radius: 4px;
+    background: #01989F;
+    transition: background 0.3s ease;
+  }
+  
+  .meeting:hover {
+    background: #017278;
+    color: white;
+  }
+
+.meeting p {
+    display: table-cell;
+    font-size: 13px;
+}
+
+.phone-view {
+    display: none;
+}
+
+//  EN TEST
+
+@media screen and (max-width: 560px) {
+    .phone-view {
+        display: block;
+    }
+    .desktop-view {
+        display: none;
+    }
+    .truncated-title {
+        max-width: 100px; /* Ajustez la valeur en pixels selon vos préférences */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      
+}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
