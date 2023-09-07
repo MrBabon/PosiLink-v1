@@ -18,7 +18,6 @@ gem 'puma', '~> 5.0'
 gem "simple_calendar", "~> 2.4"
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem 'jsbundling-rails'
-
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem 'turbo-rails'
 

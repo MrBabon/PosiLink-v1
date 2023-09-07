@@ -3,10 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    start_time = params.fetch(:start_time, Date.today).to_date
-    @participations = Participation.where(start_time: start_time.beginning_of_month.beginning_of_week..start_time.end_of_month.end_of_week)
-
-    @participations = @user.participations.includes(:event)
+    @participations = Participation.where(user_id: @user.id).includes(:event)
+    @participations_by_date = @participations.group_by { |p| p.event.start_time.to_date }
   end
 
   def edit

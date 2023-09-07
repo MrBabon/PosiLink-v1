@@ -1,3 +1,8 @@
+.section-profil {
+    display: flex;
+    justify-content: flex-start;
+}
+
 .profil-avatar {
     border-radius: 50%;
     max-width: 150px;
@@ -7,4 +12,13 @@
 .profil-page {
     display: flex;
     align-items: center;
+}
+
+@media screen and (max-width: 560px) {
+    .section-profil {
+        display: flow;
+    }
+    .profil-page {
+        flex-direction: column;
+    }
 }
