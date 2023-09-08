@@ -45,9 +45,9 @@
               <div class="card card-ac border-3">
                 <img src="<%= cl_image_path organization.photo.key %>" alt="association" class="object-fit-cover img-fluid">
                 <div class="card-body">
-                  <h5 class="card-title"><%= organization.name %></h5>
+                  <h3 class="card-title"><%= organization.name %></h3>
                   <p class="card-text"><%= organization.category %></p>
-                  <button class="btn btn-warning" onclick="window.location.href='<%= organization_path(organization) %>'">voir <%= organization.name %> <i class="fa fa-arrow-right"></i></button>
+                  <a class="bouton-ac" onclick="window.location.href='<%= organization_path(organization) %>'">voir <%= organization.name %> <i class="fa fa-arrow-right"></i></a>
                 </div>
               </div>
             </div>

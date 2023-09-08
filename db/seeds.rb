@@ -61,7 +61,7 @@ distribution.save
 
 #############################################################
 
-file_wwf = URI.open("https://res.cloudinary.com/dilp6xqmb/image/upload/v1688044356/development/cjbom2rc64up83k32mclsrj2si24.jpg")
+file_wwf = URI.open("https://res.cloudinary.com/dilp6xqmb/image/upload/v1694156072/logo-wwf_wqd1wz.jpg")
 wwf = Organization.new(
   name: "WWF",
   category: "ecologie",

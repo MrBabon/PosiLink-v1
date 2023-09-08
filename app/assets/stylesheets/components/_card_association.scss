@@ -106,3 +106,22 @@ padding: 40px 40px 0;
 .card-ac {
   min-height: 650px;
 }
+
+.card-body {
+  background-color: #00284C;
+  color: #ffffff;
+}
+
+.bouton-ac {
+  padding: 7px;
+  font-size: 25px;
+  background-color: #01989F;
+  color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 3px;
+  cursor: pointer;
+}
+
+.bouton-ac:hover {
+  background-color: #00e5bc;
+}
