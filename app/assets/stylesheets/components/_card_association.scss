@@ -120,8 +120,10 @@ padding: 40px 40px 0;
   border-radius: 10px;
   box-shadow: 3px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .bouton-ac:hover {
+  font-size: 27px;
   background-color: #00e5bc;
 }

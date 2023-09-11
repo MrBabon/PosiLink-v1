@@ -45,9 +45,9 @@
               <div class="card card-ac">
                 <img src="<%= cl_image_path organization.photo.key %>" alt="association" class="object-fit-cover img-fluid">
                 <div class="card-body">
-                  <h3 class="card-title"><%= organization.name %></h3>
-                  <p class="card-text"><%= organization.category %></p>
-                  <a class="bouton-ac" onclick="window.location.href='<%= organization_path(organization) %>'">voir <%= organization.name %> <i class="fa fa-arrow-right"></i></a>
+                  <h3 class="card-title"><%= organization.name.upcase %></h3>
+                  <p class="card-text"><%= organization.category.capitalize %></p>
+                  <a class="bouton-ac" onclick="window.location.href='<%= organization_path(organization) %>'">Voir <%= organization.name %> <i class="fa fa-arrow-right"></i></a>
                 </div>
               </div>
             </div>
