@@ -48,12 +48,18 @@
             <% end %>
         <% else %>
             <%= link_to new_user_session_path do %>
-                <i class="fa-solid fa-user borger-end" data-button-phone-target="icon"></i>
+                <i class="fa-solid fa-user borger-end"></i>
             <% end %>
         <% end %>
         <a href="/organizations"><i class="fa-solid fa-earth-americas" data-button-phone-target="icon"></i></a>
-        <%= link_to my_events_user_path(current_user) do %>
-            <i class="fa-solid fa-handshake-angle" data-button-phone-target="icon"></i>
+        <% if user_signed_in? %>
+            <%= link_to my_events_user_path(current_user) do %>
+                <i class="fa-solid fa-handshake-angle" data-button-phone-target="icon"></i>
+            <% end %>
+        <% else %>
+            <%= link_to new_user_session_path do %>
+                <i class="fa-solid fa-handshake-angle"></i>
+            <% end %>
         <% end %>
     </div>
 </footer>

@@ -50,7 +50,7 @@ a, a:hover {
   color: #ffffff;
 
 	&.dark {
-		background-color: #E3CAA5;
+		background-color: #2a356d;
 	}
 	&.light {
 		background-color: #e1e5ea;
@@ -241,13 +241,13 @@ a, a:hover {
 	color: #AD8B73;
 }
 .blue .postcard__bar {
-	background-color: #AD8B73;
+	background-color: #01989f;
 }
 .blue::before {
-	background-image: linear-gradient(-30deg, #AD8B73, transparent 50%);
+	background-image: linear-gradient(-30deg, #01989f, transparent 50%);
 }
 .blue:nth-child(2n)::before {
-	background-image: linear-gradient(30deg, #AD8B73, transparent 50%);
+	background-image: linear-gradient(30deg, #01989f, transparent 50%);
 }
 
 
