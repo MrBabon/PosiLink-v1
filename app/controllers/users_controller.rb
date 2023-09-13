@@ -1,18 +1,16 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :user, only: [:show, :edit, :update, :update_avatar, :my_events]
 
   def show
-    @user = current_user
     @participations = Participation.where(user_id: @user.id).includes(:event)
     @participations_by_date = @participations.group_by { |p| p.event.start_time.to_date }
   end
 
   def edit
-    @user = current_user
   end
 
   def update
-    @user = current_user
     if @user.update(user_params)
       redirect_to user_path, notice: 'Profil mis à jour avec succès.'
     else
@@ -21,7 +19,6 @@ class UsersController < ApplicationController
   end
 
   def update_avatar
-    @user = current_user
     if @user.update(user_avatar_params)
       redirect_to user_path, notice: 'Photo de profil mise à jour avec succès.'
     else
@@ -29,7 +26,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def my_events
+    @participating_events = @user.events
+  end
+
   private
+
+  def user
+    @user = current_user
+  end
 
   def user_avatar_params
     params.require(:user).permit(:avatar)

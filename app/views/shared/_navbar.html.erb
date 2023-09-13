@@ -18,6 +18,9 @@
           <li class="nav-item">
             <%= link_to "Associations", organizations_path, class: "nav-link" %>
           </li>
+          <li class="nav-item">
+            <%= link_to "Événements", my_events_user_path(current_user), class: "nav-link" %>
+          </li>
           <!-- AVATAR PROFIL-->
           <li class="nav-item dropdown avat-pic">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
