@@ -29,11 +29,20 @@
     display: none;
 }
 
+.bouton-calendrier {
+  padding: 7px;
+  font-size: 25px;
+  background-color: #01989F;
+  color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 3px;
+}
 //  EN TEST
 
 @media screen and (max-width: 560px) {
     .phone-view {
         display: block;
+        margin: auto;
     }
     .desktop-view {
         display: none;

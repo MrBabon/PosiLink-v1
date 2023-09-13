@@ -1,14 +1,12 @@
 
-<footer class="py-5 border-top">
-
-    <%# SCROLL TOP %>
-    <a href="#" class="btn" data-controller="scroll">
+<footer class="border-top">
+    <a href="#" class="btn scroll-laptop" data-controller="scroll">
         <span class="" data-scroll-target="scroll" data-action="scroll@window->scroll#updateScroll">
             <i class="fa-sharp fa-solid fa-caret-up fa-bounce fa-xs" style="color: #21ff9d;"></i>
         </span>
     </a>
-    <%# FIN SCROLL TOP %>
-    <div class="container text-center">
+
+    <div class="container text-center pb-2">
     <div class="row">
         <%# <div class='footer-top'>
             <div class='col footer-col'>
@@ -26,7 +24,7 @@
                 <a href="#">Profil</a>
             </div>
         </div> %>
-        <div class="col footer-middle">
+        <div class="col footer-middle pt-2">
             <h3>Restez à jour</h3>
             <form>
                 <label for="newsletter">Inscrivez-vous à la newsletter pour recevoir les dernières informations.</label>
@@ -42,18 +40,20 @@
             <a href="https://twitter.com" target="_blank" class="social"><i class="fa-brands fa-square-twitter"></i></a>
         </div>
     </div>
-    <div class="bouton-phone">
-        <a href="/"><i class="fa-solid fa-house"></i></a>
-        <a href="/"><i class="fa-solid fa-comment"></i></a>
+    <div class="bouton-phone" data-controller="button-phone">
+        <a href="/"><i class="fa-solid fa-house" data-button-phone-target="icon"></i></a>
         <% if user_signed_in? %>
             <%= link_to user_path(current_user) do %>
-                <i class="fa-solid fa-user borger-end"></i>
+                <i class="fa-solid fa-user borger-end" data-button-phone-target="icon"></i>
             <% end %>
         <% else %>
             <%= link_to new_user_session_path do %>
-                <i class="fa-solid fa-user borger-end"></i>
+                <i class="fa-solid fa-user borger-end" data-button-phone-target="icon"></i>
             <% end %>
         <% end %>
-        <a href="/organizations"><i class="fa-solid fa-earth-americas"></i></a>
+        <a href="/organizations"><i class="fa-solid fa-earth-americas" data-button-phone-target="icon"></i></a>
+        <%= link_to my_events_user_path(current_user) do %>
+            <i class="fa-solid fa-handshake-angle" data-button-phone-target="icon"></i>
+        <% end %>
     </div>
 </footer>

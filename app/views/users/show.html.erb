@@ -14,22 +14,27 @@
       </div>
       <div class="px-2 pt-2">
         <%= button_to "Modifier profil", edit_user_path(current_user), method: :get %>
+      </div> 
+      <div class="px-2 pt-2">
+        <%= link_to "Mes évènements", my_events_user_path(current_user), method: :get %>
       </div>
     </div>
   </section>
 
   <h2>Mon calendrier</h2>
-  <%= month_calendar(events: @participations) do |date, participations_of_date| %>
-    <%= date %>
-    <% participations_of_date.each do |participation| %>
-      <button class="meeting phone-view truncated-title">
-        <%= link_to participation.event.title.truncate(7, omission: ''), event_path(participation.event) %>
-      </button>
-      <button class="meeting desktop-view">
-        <%= link_to participation.event.title, event_path(participation.event), class: 'participation-calendar' %>
-      </button>
+  <div class="pb-5">
+    <%= month_calendar(events: @participations) do |date, participations_of_date| %>
+      <%= date %>
+        <% participations_of_date.each do |participation| %>
+          <button class="meeting phone-view truncated-title">
+            <%= link_to participation.event.title.truncate(1, omission: ''), event_path(participation.event) %>
+          </button>
+          <button class="meeting desktop-view">
+            <%= link_to participation.event.title, event_path(participation.event), class: 'participation-calendar' %>
+          </button>
+        <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
 
 

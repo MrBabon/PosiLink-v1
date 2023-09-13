@@ -83,7 +83,7 @@ footer h3 {
 
 .footer-middle input[type="submit"]:hover {
     color: white;
-    background-color: #219dff;
+    background-color: #00284C;
 }
 
 .footer-bottom {
@@ -107,7 +107,7 @@ a.social {
 }
 
 a.social:hover {
-    background-color: #219dff;
+    background-color: #00284C;
     color: white;
 }
 
@@ -127,6 +127,9 @@ a.social:not(:last-child) {
 
 @media screen and (max-width: 560px) {
     footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
     }
     .footer-top {
         display: none;
@@ -139,8 +142,13 @@ a.social:not(:last-child) {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         font-size: 40px;
-        color: #219dff;
-				justify-items: center;
+        color: #ffffff;
+        justify-items: center;
+        
+    }
+    .active {
+        color: #01679c;
+        font-weight: 900;
     }
     a.social {
         display: none;
