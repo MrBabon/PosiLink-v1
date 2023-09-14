@@ -24,17 +24,30 @@
       </article>
     </div>
   </section>
-
-  <h2 class="mb-5">Événements</h2>
-    <%= link_to "Retour", :back %>
+  <div class="container">
+    <div class="btn-wrap">
+      <div class='btn-left'>
+        <div class='prev-wrap'>
+          <%= link_to :back do %>
+            <div class="btn-test"><i class="fa fa-angle-left"></i> Précédent </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2 class="mb-5"> Nos <span class="phrase-couleur">événements</span></h2>
   <div class="container-orga">
     <div class="cards-orga">
       <% @events.each do |event| %>
-        <div class="align-event">
-          <div class="event-card event-width"  >
-            <%= render partial: "shared/photo_card", locals: {event: event} %>
-          </div>
-        </div>
+                <div class="card card-ac">
+                    <img src="<%= cl_image_path event.photo.key %>" alt="Événement" class="object-fit-cover img-fluid">
+                    <div class="card-body">
+                        <h2 class="card-title"><%= event.title %></h2>
+                        <p class="date-start">Le <%= event.start_time.strftime('%d %m %y') %><p>
+                        <p>À <%= event.address %> </p>
+                        <a class="bouton-ac" onclick="window.location.href='<%= event_path(event) %>'">Voir plus <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
       <% end %>
     </div>
     <div id="map-event"

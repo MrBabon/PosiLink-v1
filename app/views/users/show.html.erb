@@ -1,5 +1,9 @@
 <div class="container ">
-
+  <div class='prev-wrap pt-3'>
+    <%= link_to :back do %>
+      <div class="btn-test"><i class="fa fa-angle-left"></i> Précédent </div>
+    <% end %>
+  </div>
   <section class="section-profil py-5 px-5">
     <div class="profil-page">
       <% if current_user.avatar.attached? %>

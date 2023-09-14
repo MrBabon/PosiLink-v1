@@ -1,0 +1,86 @@
+:root {
+	--border-w: 0.25rem;
+	--border-r: 1em;
+	--angle: 130deg;
+}
+
+$color: #01989f; // so that we can transform it with SCSS
+$altColor: saturate(lighten(adjust-hue($color, 25deg), 5), 10);
+
+@mixin neon-outline($c: $color) {
+	position: relative;
+	
+
+	&:before,
+	&:after {
+
+		border-radius: inherit;
+		position: absolute;	
+		transition: opacity 0.5s, filter 0.5s;
+	}
+	
+	&:before {
+		inset: calc(var(--border-w) * -1);
+		mix-blend-mode: hard-light;
+	}
+	
+	&:after {
+		inset: 0;
+		border-radius: calc(var(--border-r) - var(--border-w));
+		mix-blend-mode: hard-light;
+	}
+}
+
+.prev-wrap {
+    padding-bottom: 5%;
+}
+
+.btn-test {
+    display: table;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 1;
+	
+	grid-column: 1;
+	
+	backface-visibility: hidden;
+	
+	padding: 0.725em 1.25em 0.8em;
+	
+	
+	background: linear-gradient(
+		var(--angle),
+		$color 25%,
+		rgba($altColor, 0.9) 40%,
+		rgba($altColor, 0.95) 65%,
+		$color 85%,
+	) no-repeat -1px 50% / 300% calc(100% + 2px);
+	color: white;
+	
+	transition:
+		color 0.3s,
+		background 0.3s,
+		transform 0.75s,
+		background-position 0.5s,
+		box-shadow 0.5s,
+	;
+	will-change: background-position, transform, box-shadow;
+	
+	@include neon-outline;
+	
+	&:after {
+		content: none;
+	}
+	
+	&:hover,
+	&:focus {
+		// transform: scale3d(1.025, 1.025, 1) translate3d(0, -2px, 0);
+		background-position: calc(100% + 1px) 50%;
+	}
+}
+
+@media(max-width: 560px) {
+    .btn-test {
+        display: inline-table;
+    }
+}
