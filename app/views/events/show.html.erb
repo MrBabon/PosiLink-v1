@@ -1,8 +1,14 @@
 <% content_for :meta_title, "Les prochains évènements • Posilink" %>
 <% content_for :meta_description, "Trouvez votre prochain évènement associatif avec Posilink" %>
 
+
 <div class="events-container">
   <div class="events-content">
+    <div class='prev-wrap'>
+      <%= link_to :back do %>
+        <div class="btn-test"><i class="fa fa-angle-left"></i> Précédent </div>
+      <% end %>
+    </div>
     <h1><strong><%= @event.title %></strong></h1>
     <p><%= @event.description %></p>
 
@@ -21,7 +27,7 @@
               <h3><strong><%= article.title %></strong></h3>
               <p class="my-content" data-read-more-target="content"><%= sanitize article.content %></p>
               <div class="read-more">
-                <button class="btn btn-warning" data-action="read-more#toggle">Lire plus</button>
+                <a class="bouton-ac" data-action="read-more#toggle">Lire plus</a>
               </div>
             </div>
             <hr>

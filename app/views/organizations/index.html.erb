@@ -39,6 +39,11 @@
   <div class='bp-index-container mt-2'>
     <h1 class="titre-bold pb-2">TOUS NOS <span class="phrase-couleur">PARTENAIRES</span> <br>ASSOCIATIFS </h1>
     <div class="container">
+      <div class='prev-wrap pt-3'>
+        <%= link_to :back do %>
+          <div class="btn-test"><i class="fa fa-angle-left"></i> Précédent </div>
+        <% end %>
+      </div>
       <div class="row align-items-center">
           <% @organizations.each do |organization| %>
             <div class="col-xl-4 col-md-6 pb-4">
