@@ -12,8 +12,14 @@
         <% end %>
     <% end %>
     <% if user_signed_in? %>
-        <%= link_to user_path(current_user), class:'avatar' do %>
-            <%= image_tag url_for(current_user.avatar), class: 'avatar', alt: "Avatar de #{current_user.nickname}" %> 
+        <% if current_user.avatar.attached? %>
+            <%= link_to user_path(current_user), class:'avatar' do %>
+                <%= image_tag url_for(current_user.avatar), class: 'avatar', alt: "Avatar de #{current_user.nickname}" %> 
+            <% end %>
+        <% else %>
+            <%= link_to user_path(current_user), class:'avatar' do %>
+                <%= image_tag "cover.png", alt: "Avatar par défaut", class: "avatar" %>
+            <% end %>
         <% end %>
     <% else %>
         <%= link_to new_user_session_path do %>
