@@ -41,12 +41,15 @@
       <% @events.each do |event| %>
                 <div class="card card-ac">
                     <img src="<%= cl_image_path event.photo.key %>" alt="Événement" class="object-fit-cover img-fluid">
-                    <div class="card-body">
-                        <h2 class="card-title"><%= event.title %></h2>
-                        <p class="date-start">Le <%= event.start_time.strftime('%d %m %y') %><p>
-                        <p>À <%= event.address %> </p>
-                        <a class="bouton-ac" onclick="window.location.href='<%= event_path(event) %>'">Voir plus <i class="fa fa-arrow-right"></i></a>
-                    </div>
+                  <div class="card-body">
+                      <p class="date-start">Le <%= event.start_time.strftime('%d %m %y') %><p>
+                      <h3 class="card-title titre-carte"><%= event.title %></h3>   
+                  </div>
+                  <p class="para-card">Adresse</p>
+                  <p class="para-card"><%= event.address %></p>
+                  <div class="card-bottom">
+                    <a class="bouton-ac" onclick="window.location.href='<%= event_path(event) %>'">Voir plus <i class="fa fa-arrow-right"></i></a>
+                  </div>
                 </div>
       <% end %>
     </div>

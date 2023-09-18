@@ -4,6 +4,8 @@ $border-radius: 5px;
 $black-color: #010004;
 $hover-color: #CEAB93;
 $transition-duration: 0,5s;
+$color: #01989f; // so that we can transform it with SCSS
+$altColor: saturate(lighten(adjust-hue($color, 25deg), 5), 10);
 
 .bp-index-container-ac {
     font-family: Arial, Helvetica, sans-serif;
@@ -108,9 +110,10 @@ padding: 40px 40px 0;
 }
 
 .card-body {
-  background-image: linear-gradient(-30deg, #01989f, transparent 50%);
+  background-image: linear-gradient(175deg, $color 15%, transparent 50%);
   background-color: #00284C;
   color: #ffffff;
+  transition: background-position 0.5s ease;
 }
 
 .bouton-ac {
@@ -123,8 +126,44 @@ padding: 40px 40px 0;
   cursor: pointer;
   transition: 0.3s;
 }
-
 .bouton-ac:hover {
   font-size: 27px;
   background-color: #00e5bc;
+}
+
+.card-bottom {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00284C;
+}
+
+.photo-taille {
+  max-height: 230px;
+}
+
+.photo-taille-ac {
+  height: 300px;
+}
+.para-card {
+  color: #F4F4F4;
+  background-color: #00284C;
+  font-weight: 600;
+  margin: 0;
+}
+
+.card-title {
+  font-size: 35px;
+  font-weight: 800;
+}
+
+.mode-phone{
+  display: none;
+}
+
+@media(max-width:560px)  {
+  .mode-phone {
+    display: block;
+  }
 }

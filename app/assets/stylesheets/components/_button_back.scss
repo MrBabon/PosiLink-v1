@@ -5,7 +5,7 @@
 }
 
 $color: #01989f; // so that we can transform it with SCSS
-$altColor: saturate(lighten(adjust-hue($color, 25deg), 5), 10);
+$altColor: saturate(lighten(adjust-hue($color, 10deg), 5), 10);
 
 @mixin neon-outline($c: $color) {
 	position: relative;

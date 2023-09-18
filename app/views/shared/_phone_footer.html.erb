@@ -1,0 +1,23 @@
+<div class="mode-phone pb-3"></div>
+<div class="bouton-phone" data-controller="button-phone">
+    <a href="/"><i class="fa-solid fa-house" data-button-phone-target="icon"></i></a>
+    <a href="/organizations"><i class="fa-solid fa-earth-americas" data-button-phone-target="icon"></i></a>
+    <% if user_signed_in? %>
+        <%= link_to my_events_user_path(current_user) do %>
+            <i class="fa-solid fa-handshake-angle" data-button-phone-target="icon"></i>
+        <% end %>
+    <% else %>
+        <%= link_to new_user_session_path do %>
+            <i class="fa-solid fa-handshake-angle"></i>
+        <% end %>
+    <% end %>
+    <% if user_signed_in? %>
+        <%= link_to user_path(current_user), class:'avatar' do %>
+            <%= image_tag url_for(current_user.avatar), class: 'avatar', alt: "Avatar de #{current_user.nickname}" %> 
+        <% end %>
+    <% else %>
+        <%= link_to new_user_session_path do %>
+            <i class="fa-solid fa-user borger-end"></i>
+        <% end %>
+    <% end %>
+</div>
