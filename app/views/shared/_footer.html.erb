@@ -7,59 +7,38 @@
     </a>
 
     <div class="container text-center pb-2">
-    <div class="row">
-        <%# <div class='footer-top'>
-            <div class='col footer-col'>
-                <h3>Menu</h3>
-                <a href="#">Accueil</a>
-                <a href="#">Associations</a>
-                <a href="#">Évènements</a>
-                <a href="#">Profil</a>
-            </div>
-            <div class='col footer-col'>
-                <h3>Menu</h3>
-                <a href="#">Accueil</a>
-                <a href="#">Associations</a>
-                <a href="#">Évènements</a>
-                <a href="#">Profil</a>
-            </div>
-        </div> %>
-        <div class="col footer-middle pt-2">
-            <h3>Restez à jour</h3>
-            <form>
-                <label for="newsletter">Inscrivez-vous à la newsletter pour recevoir les dernières informations.</label>
-                <div>
-                    <input type="email" name="newsletter" id="newsletter" placeholder="exemple@gmail.com" required>
-                    <input type="submit" value="Inscription">
+        <div class="row">
+            <%# <div class='footer-top'>
+                <div class='col footer-col'>
+                    <h3>Menu</h3>
+                    <a href="#">Accueil</a>
+                    <a href="#">Associations</a>
+                    <a href="#">Évènements</a>
+                    <a href="#">Profil</a>
                 </div>
-            </form>
+                <div class='col footer-col'>
+                    <h3>Menu</h3>
+                    <a href="#">Accueil</a>
+                    <a href="#">Associations</a>
+                    <a href="#">Évènements</a>
+                    <a href="#">Profil</a>
+                </div>
+            </div> %>
+            <div class="col footer-middle pt-2">
+                <h3>Restez à jour</h3>
+                <form>
+                    <label for="newsletter">Inscrivez-vous à la newsletter pour recevoir les dernières informations.</label>
+                    <div>
+                        <input type="email" name="newsletter" id="newsletter" placeholder="exemple@gmail.com" required>
+                        <input type="submit" value="Inscription">
+                    </div>
+                </form>
+            </div>
+            <div class="col footer-bottom mt-2">
+                <a href="https://facebook.com" target="_blank" class="social"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://linkedin.com" target="_blank" class="social"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://twitter.com" target="_blank" class="social"><i class="fa-brands fa-square-twitter"></i></a>
+            </div>
         </div>
-        <div class="col footer-bottom mt-2">
-            <a href="https://facebook.com" target="_blank" class="social"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://linkedin.com" target="_blank" class="social"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://twitter.com" target="_blank" class="social"><i class="fa-brands fa-square-twitter"></i></a>
-        </div>
-    </div>
-    <div class="bouton-phone" data-controller="button-phone">
-        <a href="/"><i class="fa-solid fa-house" data-button-phone-target="icon"></i></a>
-        <% if user_signed_in? %>
-            <%= link_to user_path(current_user) do %>
-                <i class="fa-solid fa-user borger-end" data-button-phone-target="icon"></i>
-            <% end %>
-        <% else %>
-            <%= link_to new_user_session_path do %>
-                <i class="fa-solid fa-user borger-end"></i>
-            <% end %>
-        <% end %>
-        <a href="/organizations"><i class="fa-solid fa-earth-americas" data-button-phone-target="icon"></i></a>
-        <% if user_signed_in? %>
-            <%= link_to my_events_user_path(current_user) do %>
-                <i class="fa-solid fa-handshake-angle" data-button-phone-target="icon"></i>
-            <% end %>
-        <% else %>
-            <%= link_to new_user_session_path do %>
-                <i class="fa-solid fa-handshake-angle"></i>
-            <% end %>
-        <% end %>
     </div>
 </footer>
