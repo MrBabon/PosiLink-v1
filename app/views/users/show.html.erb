@@ -4,7 +4,7 @@
       <div class="btn-test"><i class="fa fa-angle-left"></i> Précédent </div>
     <% end %>
   </div>
-  <section class="section-profil px-5">
+  <section class="section-profil px-2">
     <div class="profil-page">
       <% if current_user.avatar.attached? %>
           <%= image_tag url_for(current_user.avatar), alt: "Avatar de #{current_user.email}", class: "profil-avatar" %>
