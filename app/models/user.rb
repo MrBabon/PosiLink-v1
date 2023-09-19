@@ -3,11 +3,16 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  has_many :participations
-  has_one_attached :avatar
   before_save :set_avatar_filename
-
+  
+  has_many :messages
+  has_many :participants
+  has_many :chatrooms, through: :participants
+  
+  has_many :participations
   has_many :events, through: :participations
+  
+  has_one_attached :avatar
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :nickname, presence: true, format: { without: /\s/ }

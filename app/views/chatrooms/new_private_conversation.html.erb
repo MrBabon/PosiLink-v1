@@ -1,0 +1,8 @@
+<h2>Nouvelle conversation privée</h2>
+
+<%= form_tag create_private_conversation_chatrooms_path, method: :post do %>
+  <label for="other_user_id">Choisissez un utilisateur avec qui discuter en privé:</label>
+  <%= select_tag "other_user_id", options_for_select(User.all.map { |user| [user.nickname, user.id] }), prompt: "Sélectionnez un utilisateur" %>
+  <br>
+  <%= submit_tag "Démarrer la conversation privée", class: "btn btn-primary" %>
+<% end %>
