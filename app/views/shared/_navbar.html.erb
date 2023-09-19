@@ -25,14 +25,14 @@
           <li class="nav-item dropdown avat-pic">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if current_user.avatar.attached? %>
-                <%= image_tag url_for(current_user.avatar), class: 'avatar', alt: "Avatar de #{current_user.email}" %>
+                <%= image_tag url_for(current_user.avatar), class: 'avatar', alt: "Avatar de #{current_user.nickname}" %>
               <% else %>
                 <%= image_tag "cover.png", alt: "Avatar par défaut", class: "avatar" %>
               <% end %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Profil", user_path(current_user), class: "dropdown-item" %>
-              <%# <%= link_to "Messages", "#", class: "dropdown-item" %>
+              <%= link_to "Messages", chatrooms_path, class: "dropdown-item" %>
               <%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
