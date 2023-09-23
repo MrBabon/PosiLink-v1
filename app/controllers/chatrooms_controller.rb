@@ -2,7 +2,12 @@ class ChatroomsController < ApplicationController
     before_action :authenticate_user!
 
     def index
-        @chatrooms = current_user.chatrooms
+        if params[:query].present?
+            @chatrooms = Chatroom.joins(participants: :user).where.not(participants: { user: current_user }).where("users.nickname ILIKE ?", "%#{params[:query]}%")
+        else
+            @chatrooms = current_user.chatrooms.includes(:messages)
+        end
+        params[:query] = ""
     end
 
     def show
@@ -10,9 +15,8 @@ class ChatroomsController < ApplicationController
         if @chatroom.private && !@chatroom.users.include?(current_user)
             redirect_to chatrooms_path, notice: "Vous avez pas accés à cette conversation"
         else
-        @messages = @chatroom.messages.order(created_at: :asc)
+            @messages = @chatroom.messages.order(created_at: :asc)
         end
-        # @new_message = Message.new
     end
 
     def new_private_conversation

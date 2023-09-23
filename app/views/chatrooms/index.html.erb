@@ -1,27 +1,51 @@
-<div class="container">
-    <div class="d-flex py-2">
-        <h3>Messages</h3>
-        <ul>
-            <% @chatrooms.each do |chatroom| %>
-                <li>
-                    <%= link_to chatroom_path(chatroom) do %>
-                        <% chatroom.participants.each do |participant| %>
-                            <% unless participant.user == current_user %>
-                                <%= image_tag url_for(participant.user.avatar), class: 'avatar', alt: "Avatar de #{participant.user.nickname}" %>
-                                <%= participant.user.nickname %>
-                           <% end %>
-                        <% end %>
-                    <% end %>
-                </li>
+<div class="container-chatroom">
+    <div class="chatroom-left pt-3">
+        <div class="liste-discussions">
+            <h3>Messages</h3>
+            <%= form_with url: chatrooms_path, method: :get, class: "d-flex barre-recherche shadow-lg rounded-pill mb-4" do %>
+                <%= text_field_tag :query,
+                params[:query],
+                class: "form-control recherche-input",
+                placeholder: "Discussion"
+                %>
+                <%= submit_tag "Recherche", nickname: "", class: "nav-link py-1 px-2" %>
             <% end %>
-        </ul>
-    <h2>Nouvelle conversation privée</h2>
-
-    <%= form_tag create_private_conversation_chatrooms_path, method: :post do %>
-    <label for="other_user_id">Choisissez un utilisateur avec qui discuter en privé:</label>
-    <%= select_tag "other_user_id", options_for_select(User.all.map { |user| [user.nickname, user.id] }), prompt: "Sélectionnez un utilisateur" %>
-    <br>
-    <%= submit_tag "Démarrer la conversation privée", class: "btn btn-primary" %>
-    <% end %>
+                <%# <%= link_to "Effacer la recherche", chatrooms_path, class: "btn btn-secondary" %>
+            <%# <%= form_tag create_private_conversation_chatrooms_path, method: :post do %>
+                <%# <label for="other_user_id"></label> %>
+                <%# <%= select_tag "other_user_id", options_for_select(User.all.map { |user| [user.nickname, user.id] }), prompt: "Sélectionnez un utilisateur" %>
+                <%# <br> %>
+                <%# <%= submit_tag "Démarrer", class: "btn btn-primary" %>
+            <%# <% end %>
+        </div>
+        <div class="discussions">
+            <ul>
+                <%= render "chatrooms/chat_private" %>
+            </ul>
+        </div>
+        <div>
+        </div>
+    </div>
+    <div class="chatroom-right pt-3">
+        <%# J'intègre la show de la discution selectionné. mettre une condition si l'user n'as pas selectionner d'user " par default" %>
+        <% if @chatroom %>
+            <div class="container chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+                <div class="messages" data-chatroom-subscription-target="messages">
+                    <% @chatroom.messages.each do |message| %>
+                        <%= render "messages/message", message: message %>
+                    <% end %>
+                </div>
+                <%= simple_form_for [@chatroom, @chatroom.messages.build], html: {class: "d-flex"} do |f| %>
+                    <%= f.input :content,
+                        label: false,
+                        placeholder: "Votre message ...",
+                        wrapper_html: {class: "flex-grow-1"},
+                        input_html: { "data-chatroom-subscription-target" => "input" }%>
+                    <%= f.submit "Envoyé", class: "btn btn-primary mb-3", "data-action" => "click->chatroom-subscription#sendMessage" %>
+                <% end %>
+            </div>
+        <% else %>
+            <p>Sélectionnez une conversation pour commencer la discussion.</p>
+        <% end %>
     </div>
 </div>

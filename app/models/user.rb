@@ -17,6 +17,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :nickname, presence: true, format: { without: /\s/ }
 
+
+
   def set_avatar_filename
     if avatar.attached?
       extension = File.extname(avatar.filename.to_s)

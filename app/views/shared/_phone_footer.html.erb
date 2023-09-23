@@ -12,6 +12,15 @@
         <% end %>
     <% end %>
     <% if user_signed_in? %>
+        <%= link_to chatrooms_path do %>
+            <i class="fa-solid fa-paper-plane" data-button-phone-target="icon"></i>
+        <% end %>
+    <% else %>
+        <%= link_to new_user_session_path do %>
+            <i class="fa-solid fa-paper-plane"></i>
+        <% end %>
+    <% end %>
+    <% if user_signed_in? %>
         <% if current_user.avatar.attached? %>
             <%= link_to user_path(current_user), class:'avatar' do %>
                 <%= image_tag url_for(current_user.avatar), class: 'avatar', alt: "Avatar de #{current_user.nickname}" %> 

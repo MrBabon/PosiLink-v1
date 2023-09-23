@@ -7,6 +7,9 @@ import { application } from "./application"
 import ButtonPhoneController from "./button_phone_controller"
 application.register("button-phone", ButtonPhoneController)
 
+import ChatroomLoaderController from "./chatroom_loader_controller"
+application.register("chatroom-loader", ChatroomLoaderController)
+
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
