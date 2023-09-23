@@ -14,7 +14,7 @@ export default class extends Controller {
   }
 
   resetInput() {
-    this.inputTarget.value= ""; // Réinitialise la valeur de l'élément de saisie à une chaîne vide
+    this.inputTarget.value= "";
   }
 
   scrollToBottom() {

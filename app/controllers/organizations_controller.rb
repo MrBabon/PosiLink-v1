@@ -4,7 +4,6 @@ class OrganizationsController < ApplicationController
       @organizations = Organization.search_by_organization(params[:query])
     else
       @organizations = Organization.all
-      # @events = Event.all --> en phase de test pour appeler les event sur index organization
     end
     params[:query] = ""
 

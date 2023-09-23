@@ -1,0 +1,36 @@
+<% @chatrooms.each do |chatroom| %>
+    <li>
+        <div class="laptop-discussion" >
+            <div class="user" data-chatroom-id="<%= chatroom.id %>" data-controller="chatroom-loader">
+                <%= link_to chatroom_path(chatroom), remote: true, "data-action" => "click->chatroom-loader#loadChatroom", class: "user-link"  do %>
+                    <% chatroom.participants.each do |participant| %>
+                        <% if participant.user != current_user && participant.user.nickname.downcase.include?(params[:query].to_s) %>
+                            <% if participant.user.avatar.attached? %>
+                                <%= image_tag url_for(participant.user.avatar), class: 'avatar', alt: "Avatar de #{participant.user.nickname}" %>
+                            <% else %>
+                                <%= image_tag "cover.png", alt: "Avatar par défaut", class: "avatar" %>
+                            <% end %>                      
+                            <%= participant.user.nickname %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+                <div data-chatroom-loader-target="messages"></div>
+            </div>
+        </div>
+        <div class="phone-discussion">
+            <%= link_to chatroom_path(chatroom) do %>
+                <% chatroom.participants.each do |participant| %>
+                    <% if participant.user != current_user && participant.user.nickname.downcase.include?(params[:query].to_s)%>
+                        <% if participant.user.avatar.attached? %>
+                            <%= image_tag url_for(participant.user.avatar), class: 'avatar', alt: "Avatar de #{participant.user.nickname}" %>
+                        <% else %>
+                            <%= image_tag "cover.png", alt: "Avatar par défaut", class: "avatar" %>
+                        <% end %>
+                        <%= participant.user.nickname %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </div>
+    </li>
+<% end %>
+
