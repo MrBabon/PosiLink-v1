@@ -22,4 +22,5 @@ Rails.application.routes.draw do
       post :create_private_conversation
     end
   end
+  get 'chatrooms/:id/chatroom_partial', to: 'chatrooms#chatroom_partial', as: 'chatroom_partial'
 end

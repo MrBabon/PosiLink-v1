@@ -9,8 +9,8 @@ export default class extends Controller {
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
       { received: data => this.messagesTarget.insertAdjacentHTML("beforeend", data) }
-    )
-    console.log(`Subscrib to the chatroom with the id ${this.chatroomIdValue}.`)
+      )
+      console.log(`Subscrib to the chatroom with the id ${this.chatroomIdValue}.`)
   }
 
   resetInput() {
@@ -40,4 +40,5 @@ export default class extends Controller {
   
     this.resetInput();
   }
+
 }

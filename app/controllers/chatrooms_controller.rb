@@ -22,7 +22,12 @@ class ChatroomsController < ApplicationController
     def new_private_conversation
         @users = User.where.not(id: current_user.id) # Exclure l'utilisateur actuel de la liste
         @chatroom = Chatroom.new
-      end
+    end
+
+    def chatroom_partial
+    @chatroom = Chatroom.find(params[:id])
+    render partial: "chatroom", locals: { chatroom: @chatroom }
+    end
 
     def create_private_conversation
         # Créez une nouvelle chatroom pour la conversation privée

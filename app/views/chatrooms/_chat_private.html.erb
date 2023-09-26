@@ -1,7 +1,7 @@
 <% @chatrooms.each do |chatroom| %>
     <li>
         <div class="laptop-discussion" >
-            <div class="user" data-chatroom-id="<%= chatroom.id %>" data-controller="chatroom-loader">
+            <div class="user" data-chatroom-loader-chatroom-id="<%= chatroom.id %>" data-controller="chatroom-loader">
                 <%= link_to chatroom_path(chatroom), remote: true, "data-action" => "click->chatroom-loader#loadChatroom", class: "user-link"  do %>
                     <% chatroom.participants.each do |participant| %>
                         <% if participant.user != current_user && participant.user.nickname.downcase.include?(params[:query].to_s) %>
@@ -14,7 +14,7 @@
                         <% end %>
                     <% end %>
                 <% end %>
-                <div data-chatroom-loader-target="messages"></div>
+                <div data-chatroom-loader-target="message"></div>
             </div>
         </div>
         <div class="phone-discussion">
