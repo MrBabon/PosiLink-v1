@@ -27,23 +27,8 @@
         </div>
     </div>
     <div class="chatroom-right pt-3">
-        <%# J'intègre la show de la discution selectionné. mettre une condition si l'user n'as pas selectionner d'user " par default" %>
-        <% if @chatroom %>
-            <div class="container chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-                <div class="messages" data-chatroom-subscription-target="messages">
-                    <% @chatroom.messages.each do |message| %>
-                        <%= render "messages/message", message: message %>
-                    <% end %>
-                </div>
-                <%= simple_form_for [@chatroom, @chatroom.messages.build], html: {class: "d-flex"} do |f| %>
-                    <%= f.input :content,
-                        label: false,
-                        placeholder: "Votre message ...",
-                        wrapper_html: {class: "flex-grow-1"},
-                        input_html: { "data-chatroom-subscription-target" => "input" }%>
-                    <%= f.submit "Envoyé", class: "btn btn-primary mb-3", "data-action" => "click->chatroom-subscription#sendMessage" %>
-                <% end %>
-            </div>
+        <% if @chatroom.nil? %>
+            <div class="tentative"></div>
         <% else %>
             <p>Sélectionnez une conversation pour commencer la discussion.</p>
         <% end %>
