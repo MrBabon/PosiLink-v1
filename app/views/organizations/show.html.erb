@@ -32,6 +32,15 @@
             <div class="btn-test"><i class="fa fa-angle-left"></i> Précédent </div>
           <% end %>
         </div>
+        <% if current_user.following?(@organization) %>
+          <%= link_to "Ne plus suivre", unfollow_organization_path(@organization), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Vous êtes sûr?" }, class: "bouton-ac" %>
+        <% else %>
+          <%= simple_form_for([@organization], url: follow_organization_path(@organization), method: :post) do |f| %>
+            <div class="form-actions">
+              <%= f.button :submit, value: "Suivre", class: "bouton-ac" %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

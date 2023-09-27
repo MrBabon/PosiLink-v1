@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_19_153119) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_27_152648) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -69,6 +69,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_153119) do
     t.float "latitude"
     t.float "longitude"
     t.index ["organization_id"], name: "index_events_on_organization_id"
+  end
+
+  create_table "follows", force: :cascade do |t|
+    t.bigint "follower_id", null: false
+    t.string "followable_type", null: false
+    t.bigint "followable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followable_type", "followable_id"], name: "index_follows_on_followable"
+    t.index ["follower_id", "followable_id", "followable_type"], name: "index_follows", unique: true
+    t.index ["follower_id"], name: "index_follows_on_follower_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -130,6 +141,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_153119) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "events"
   add_foreign_key "events", "organizations"
+  add_foreign_key "follows", "users", column: "follower_id"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "participants", "chatrooms"

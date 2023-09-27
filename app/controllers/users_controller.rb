@@ -30,6 +30,19 @@ class UsersController < ApplicationController
     @participating_events = @user.events
   end
 
+  def follow_organization
+    user = User.find(params[:id])
+    organization = Organization.find(params[:organization_id])
+  
+    if user.follow(organization)
+      flash[:success] = "Vous suivez maintenant #{organization.name}."
+    else
+      flash[:error] = "Le suivi de #{organization.name} a échoué."
+    end
+  
+    redirect_to organization_path(organization)
+  end
+
   private
 
   def user
