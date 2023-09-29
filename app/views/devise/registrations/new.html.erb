@@ -31,6 +31,9 @@
 																required: true,
 																label: "Confirmation de mot de passe",
 																label_html: { class: 'label-left' } %>
+										<%= f.input :is_association, 
+															as: :boolean, 
+															label: "Je suis une association " %>
 									</div>
 									<div class="form-actions button-registration">
 										<%= f.button :submit, "S'inscrire", class: "btn btn-primary button-registration-submit" %>
