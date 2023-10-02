@@ -13,9 +13,9 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
 
     if current_user.follow(@organization)
-      flash[:success] = "Vous suivez maintenant #{@organization.name}."
+      flash[:notice] = "Vous suivez maintenant #{@organization.name}."
     else
-      flash[:error] = "Le suivi de #{@organization.name} a échoué."
+      flash[:notice] = "Le suivi de #{@organization.name} a échoué."
     end
 
     redirect_to organization_path(@organization)
@@ -25,9 +25,9 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
 
     if current_user.unfollow(@organization)
-      flash[:success] = "Vous ne suivez plus #{@organization.name}."
+      flash[:notice] = "Vous ne suivez plus #{@organization.name}."
     else
-      flash[:error] = "Le désabonnement de #{@organization.name} a échoué."
+      flash[:notice] = "Le désabonnement de #{@organization.name} a échoué."
     end
 
     redirect_to organization_path(@organization)
