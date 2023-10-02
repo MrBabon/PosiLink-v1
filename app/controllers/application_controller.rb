@@ -14,10 +14,12 @@ class ApplicationController < ActionController::Base
     # For additional fields in app/views/devise/registrations/new.html.erb
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[avatar])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:is_organization])
 
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: %i[avatar])
     devise_parameter_sanitizer.permit(:account_update, keys: %i[nickname])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[is_organization])
   end
   
 end

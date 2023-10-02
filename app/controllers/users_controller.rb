@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def show
     @participations = Participation.where(user_id: @user.id).includes(:event)
     @participations_by_date = @participations.group_by { |p| p.event.start_time.to_date }
+    @followed_organizations = @user.following
   end
 
   def edit
@@ -54,6 +55,6 @@ class UsersController < ApplicationController
   end
   
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :avatar, :nickname)
+    params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :avatar, :nickname, :is_organization)
   end
 end

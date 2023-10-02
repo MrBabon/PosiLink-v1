@@ -29,6 +29,13 @@
       <%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "bouton-deco bi bi-x-square" %>
     </div>
   </section>
+  <!-- A VOIR CE QUE JE PEUX FAIRE AVEC 
+  <h2>Associations que je suis</h2>
+  <ul>
+    <% @followed_organizations.each do |organization| %>
+      <li><%= link_to organization.name, organization_path(organization) %></li>
+    <% end %>
+  </ul>-->
   <h2>Mon calendrier</h2>
   <div class="pb-5">
     <%= month_calendar(events: @participations) do |date, participations_of_date| %>

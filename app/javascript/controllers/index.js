@@ -19,5 +19,8 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import RegistrationFormController from "./registration_form_controller"
+application.register("registration-form", RegistrationFormController)
+
 import ScrollController from "./scroll_controller"
 application.register("scroll", ScrollController)
