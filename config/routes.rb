@@ -2,7 +2,10 @@
 
 Rails.application.routes.draw do
   root to: "pages#home"
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
   
   resources :users, only: [:show, :edit, :update] do
     get 'my_events', on: :member
@@ -30,4 +33,14 @@ Rails.application.routes.draw do
     end
   end
   get 'chatrooms/:id/chatroom_partial', to: 'chatrooms#chatroom_partial', as: 'chatroom_partial'
+
+  devise_scope :user do
+    authenticated :user do
+      root 'organizations#index', as: :authenticated_root
+    end
+
+    unauthenticated do
+      root 'pages#home', as: :unauthenticated_root
+    end
+  end
 end
