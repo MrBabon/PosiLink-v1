@@ -34,6 +34,10 @@ class User < ApplicationRecord
       avatar.blob.update(filename: "#{id}_#{nickname}#{extension}")
     end
   end
+  
+  def following?(organization)
+    follows.exists?(followable: organization)
+  end
 
   private
 
@@ -56,8 +60,5 @@ class User < ApplicationRecord
     end
   end
 
-  def following?(organization)
-    follows.exists?(followable: organization)
-  end
 
 end
