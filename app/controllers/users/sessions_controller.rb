@@ -22,11 +22,9 @@ class Users::SessionsController < Devise::SessionsController
   
   def after_sign_in_path_for(resource)
     if resource.is_organization?
-      # Rediriger les organisations vers une page spécifique
-      new_organization_path
+      user_path(current_user)
     else
       organizations_path
-      # Rediriger les utilisateurs standard vers une autre page
     end
   end
   # If you have extra params to permit, append them to the sanitizer.
