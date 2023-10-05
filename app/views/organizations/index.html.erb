@@ -49,12 +49,16 @@
             <div class="col-xl-4 col-md-6 pb-4">
               <div class="card card-ac">
                 <div class="photo-taille-ac">
-                  <img src="<%= cl_image_path organization.photo.key %>" alt="association" class="object-fit-cover img-fluid">
+                  <% if organization.photo.present? %>
+                    <img src="<%= cl_image_path organization.photo.key %>" alt="association" class="object-fit-cover img-fluid">
+                  <% else %>
+                    <img src="<%= cl_image_path organization.picture %>" alt="association" class="object-fit-cover img-fluid">
+                  <% end %>                
                 </div>
                 <div class="card-body">
                   <h3 class="card-title titre-carte"><%= organization.name.upcase %></h3>
                 </div>
-                  <p class="card-text para-card"><%= organization.category.capitalize %></p>
+                  <p class="card-text para-card"><%= organization.category %></p>
                 <div class="card-bottom">
                   <a class="bouton-ac" onclick="window.location.href='<%= organization_path(organization) %>'">Voir <%= organization.name %> <i class="fa fa-arrow-right"></i></a>
                 </div>

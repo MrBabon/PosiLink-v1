@@ -34,18 +34,11 @@ class User < ApplicationRecord
       avatar.blob.update(filename: "#{id}_#{nickname}#{extension}")
     end
   end
-  
+
   def following?(organization)
     follows.exists?(followable: organization)
   end
 
-  private
-
-  def cleanup_dependent_records
-    participations.destroy_all
-    messages.destroy_all
-    follows.destroy_all
-  end
   def follow(organization)
     follows.create(followable: organization)
   end
@@ -58,6 +51,14 @@ class User < ApplicationRecord
     else
       false
     end
+  end
+  
+  private
+
+  def cleanup_dependent_records
+    participations.destroy_all
+    messages.destroy_all
+    follows.destroy_all
   end
 
 

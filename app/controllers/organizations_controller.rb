@@ -23,8 +23,18 @@ class OrganizationsController < ApplicationController
       end
   end
 
+  def create
+    @organization = Organization.new(organization_params)
+
+    if @organization.save
+      redirect_to user_path(current_user)
+    else
+      render :new
+    end
+  end
+
   def new
-        
+    @organization = Organization.new
   end
 
   def follow
@@ -49,6 +59,12 @@ class OrganizationsController < ApplicationController
     end
 
     redirect_to organization_path(@organization)
+  end
+
+  private
+
+  def organization_params
+    params.require(:organization).permit(:name, :address, :phone_number, :description, :picture)
   end
 
 end

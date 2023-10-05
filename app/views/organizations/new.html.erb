@@ -1,1 +1,50 @@
 <h1>Parlez nous de votre association !</h1>
+
+<section class="h-100 gradient-form">
+  	<div class="container py-4 h-100">
+    	<div class="row d-flex justify-content-center align-items-center h-100">
+      		<div class="col-xl-10 h-100">
+        		<div class="card rounded-3 text-black gradient-custom-2 h-100">
+          			<div class="row g-0">
+            			<div class="d-flex align-items-center col-lg-6 ">
+              				<div class="card-body p-md-5 mx-md-4 text-white">
+                                <%= simple_form_for(@organization) do |f| %>
+                                    <%= f.input :name, 
+                                                required: true, 
+                                                label: "Nom de l'association",
+                                                label_html: { class: 'label-left' } %>
+                                    <%= f.input :address, 
+                                                required: true,
+                                                label: "Adresse",
+                                                label_html: { class: 'label-left' } %>
+                                    <%= f.input :phone_number, 
+                                                required: true,
+                                                label: "Numéro de téléphone",
+                                                label_html: { class: 'label-left' } %>
+                                    <%= f.input :email,
+                                                required: true,   
+                                                label: "Adresse email de contact de l'association",
+                                                label_html: { class: 'label-left' } %>
+                                    <%= f.input :picture, 
+                                                required: true, 
+                                                label: "Photo de l'association", 
+                                                as: :file,
+                                                label_html: { class: 'label-left' } %>
+                                    <%= f.label :category,  "Catégorie", required: true, label_html: { class: 'label-left' } %>
+                                    <%= f.select :category,
+                                                [["Choisir...", ""]] + Organization::CATEGORIES.map(&:capitalize) %>
+                                    <%= f.input :description, 
+                                                required: true, 
+                                                label: "Description", 
+                                                as: :text,
+                                                label_html: { class: 'label-left' } %>
+                                    <%= f.button :submit, "Créer l'association", class: "btn btn-primary button-registration-submit" %>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
